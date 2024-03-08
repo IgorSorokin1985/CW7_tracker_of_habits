@@ -1,6 +1,7 @@
 from habits.apps import HabitsConfig
 from django.urls import path
-from habits.views import HabitListAPIView, HabitDestroyAPIView, HabitRetrieveAPIView, HabitUpdateAPIView, HabitCreateAPIView, HabitsPublicListAPIView
+from habits.views import HabitListAPIView, HabitDestroyAPIView, HabitRetrieveAPIView, HabitUpdateAPIView, \
+    HabitCreateAPIView, HabitsPublicListAPIView
 # Описание маршрутизации для ViewSet
 
 app_name = HabitsConfig.name

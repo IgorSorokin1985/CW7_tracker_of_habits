@@ -154,13 +154,13 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com", #  Замените на адрес вашего фронтенд-сервера
+    "https://read-and-write.example.com",  # Замените на адрес вашего фронтенд-сервера
     # и добавьте адрес бэкенд-сервера
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
 
-CELERY_BROKER_URL = 'redis://localhost:6379' # Например, Redis, который по умолчанию работает на порту 6379
+CELERY_BROKER_URL = 'redis://localhost:6379'  # Например, Redis, который по умолчанию работает на порту 6379
 
 # URL-адрес брокера результатов, также Redis
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'

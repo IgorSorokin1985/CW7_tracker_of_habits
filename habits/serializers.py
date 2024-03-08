@@ -31,4 +31,5 @@ class HabitSerializer(serializers.ModelSerializer):
 class HabitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ["action", "is_nice_habit", "reward", "associated_habit", "periodicity", "time_for_habit", "is_public", ]
+        fields = ["action", "is_nice_habit", "reward", "associated_habit", "periodicity",
+                  "time_for_habit", "is_public"]
