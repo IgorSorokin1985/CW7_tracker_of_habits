@@ -26,3 +26,9 @@ class HabitSerializer(serializers.ModelSerializer):
             associated_habit = None
         validate_fields(is_nice_habit, reward, associated_habit)
         return data
+
+
+class HabitsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ["action", "is_nice_habit", "reward", "associated_habit", "periodicity", "time_for_habit", "is_public", ]
