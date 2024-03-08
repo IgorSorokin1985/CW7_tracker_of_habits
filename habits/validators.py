@@ -22,6 +22,6 @@ def validate_fields(is_nice_habit, reward, associated_habit):
         if associated_habit:
             if not associated_habit.is_nice_habit:
                 raise serializers.ValidationError("Associated habit should be NICE habit")
-        else:
+        if not reward and not associated_habit:
             raise serializers.ValidationError("Habit should have reward or associated nice habit")
 
