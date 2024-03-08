@@ -11,7 +11,7 @@ class Habit(models.Model):
     action = models.CharField(max_length=50, verbose_name='Action')
     is_nice_habit = models.BooleanField(**NULLABLE, verbose_name='Is nice habit?')
     reward = models.CharField(max_length=50, **NULLABLE, verbose_name='Reward')
-    associated_habit = models.ForeignKey('self', **NULLABLE, verbose_name='Associated habit')
+    associated_habit = models.ForeignKey('self', on_delete=models.SET_NULL, **NULLABLE, verbose_name='Associated habit')
     periodicity = models.PositiveIntegerField(verbose_name='Periodicity')
     is_public = models.BooleanField(default=False, verbose_name='Is public')
     time_for_habit = models.PositiveIntegerField(verbose_name='Time for habit')
