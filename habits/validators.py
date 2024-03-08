@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from habits.models import Habit
 
 
 def check_time_for_habit(time):
@@ -24,4 +23,3 @@ def validate_fields(is_nice_habit, reward, associated_habit):
                 raise serializers.ValidationError("Associated habit should be NICE habit")
         if not reward and not associated_habit:
             raise serializers.ValidationError("Habit should have reward or associated nice habit")
-

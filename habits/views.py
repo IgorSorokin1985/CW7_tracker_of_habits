@@ -1,13 +1,9 @@
-from rest_framework import viewsets, generics, status
-from rest_framework.response import Response
+from rest_framework import generics
 from habits.models import Habit
 from rest_framework.permissions import IsAuthenticated
 from users.permissions import IsOwner
 from habits.serializers import HabitSerializer, HabitsSerializer
 from habits.paginators import HabitsPagination
-from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
-#from materials.utils import get_url_for_payment
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
