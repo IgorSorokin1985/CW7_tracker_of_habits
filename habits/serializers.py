@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from habits.models import Habit
-from habits.validators import check_time_for_habit, check_habit_periodicity, validate_fields
+from habits.models import Habit, NiceHabit
+from habits.validators import check_duration_time, check_habit_periodicity, validate_fields
 
 
 class HabitSerializer(serializers.ModelSerializer):
-    time_for_habit = serializers.IntegerField(validators=[check_time_for_habit])
+    duration_time = serializers.TimeField(validators=[check_duration_time])
     periodicity = serializers.IntegerField(validators=[check_habit_periodicity])
 
     class Meta:
@@ -12,23 +12,26 @@ class HabitSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, data):
-        if data.get('is_nice_habit'):
-            is_nice_habit = data.get('is_nice_habit')
-        else:
-            is_nice_habit = None
         if data.get('reward'):
             reward = data.get('reward')
         else:
             reward = None
-        if data.get('associated_habit'):
-            associated_habit = data.get('associated_habit')
+        if data.get('associated_nice_habit'):
+            associated_nice_habit = data.get('associated_nice_habit')
         else:
-            associated_habit = None
-        validate_fields(is_nice_habit, reward, associated_habit)
+            associated_nice_habit = None
+        validate_fields(reward, associated_nice_habit)
         return data
 
 
-class HabitsSerializer(serializers.ModelSerializer):
+class PublicHabitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ["action", "is_nice_habit", "reward", "associated_habit", "periodicity", "time_for_habit", "is_public", ]
+        fields = ["action", "place", "time", "reward", "associated_habit", "periodicity",
+                  "time_for_habit", "is_public"]
+
+
+class NiceHabitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NiceHabit
+        fields = "__all__"

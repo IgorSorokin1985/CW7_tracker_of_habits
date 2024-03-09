@@ -1,7 +1,6 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from users.models import User
-from users.models import User
 
 
 class CourseAPITest(APITestCase):
@@ -31,7 +30,6 @@ class CourseAPITest(APITestCase):
             "telegram": "@testtelegram2",
             "password": "12345"
         }
-        #self.client.force_authenticate(user=self.user)
         response = self.client.post(
             '/user/create/',
             data=data)

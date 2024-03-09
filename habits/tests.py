@@ -18,12 +18,12 @@ class CourseAPITest(APITestCase):
             id=100,
             user=self.user,
             place="home",
+            time="12:00",
             action="not drink alcohol",
-            is_nice_habit=False,
             reward="15 DKK",
             periodicity=1,
             is_public=False,
-            time_for_habit=15,
+            duration_time="00:00:30",
         )
 
     def test_get_list_habits(self):
@@ -37,14 +37,13 @@ class CourseAPITest(APITestCase):
 
     def test_create_habit(self):
         data = {
-            "id": 101,
             "place": "home",
+            "time": "12:00",
             "action": "drink water",
-            "is_nice_habit": False,
             "reward": "10 DKK",
             "periodicity": 1,
             "is_public": False,
-            "time_for_habit": 15,
+            "duration_time": "00:01",
         }
         self.client.force_authenticate(user=self.user)
         response = self.client.post(
@@ -59,7 +58,7 @@ class CourseAPITest(APITestCase):
         self.client.force_authenticate(user=self.user)
         response = self.client.delete(
             '/habit/delete/100/')
-
+        print(response)
         self.assertEquals(
             response.status_code,
             status.HTTP_204_NO_CONTENT
