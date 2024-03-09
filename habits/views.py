@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from users.permissions import IsOwner
 from habits.serializers import HabitSerializer, PublicHabitsSerializer, NiceHabitSerializer
 from habits.paginators import HabitsPagination, NiceHabitsPagination
+from habits.utils import send_telegram_message
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
@@ -14,7 +15,8 @@ class HabitCreateAPIView(generics.CreateAPIView):
         new_habit = serializer.save()
         new_habit.user = self.request.user
         new_habit.save()
-
+        # test
+        send_telegram_message(new_habit)
 
 class HabitListAPIView(generics.ListAPIView):
     serializer_class = HabitSerializer
