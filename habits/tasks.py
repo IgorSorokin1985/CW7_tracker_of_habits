@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 
 @shared_task
 def check_habits_for_action():
+    """Function for checking all habits. Which habits need sending message to user.
+    After sending this function changes habit's field next_date"""
     habits = Habit.objects.all()
     now_time = datetime.now().time()
     now_date = datetime.now().today()

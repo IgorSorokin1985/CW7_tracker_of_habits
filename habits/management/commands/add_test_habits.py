@@ -48,6 +48,7 @@ test_habits = [
 
 
 class Command(BaseCommand):
+    """Adding test habits in Database"""
     def handle(self, *args, **options):
         NiceHabit.objects.all().delete()
         Habit.objects.all().delete()
