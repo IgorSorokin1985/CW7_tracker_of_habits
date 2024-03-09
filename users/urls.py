@@ -1,4 +1,4 @@
-from users.views import UserCreateAPIView, UserUpdateAPIView, UserDestroyAPIView, UserRetrieveAPIView, UserListAPIView
+from users.views import UserCreateAPIView, UserUpdateAPIView, UserDestroyAPIView, UserRetrieveAPIView
 from users.apps import UsersConfig
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -13,5 +13,4 @@ urlpatterns = [
     path('user/delete/<int:pk>/', UserDestroyAPIView.as_view(), name='user_delete'),
     path('user/update/<int:pk>/', UserUpdateAPIView.as_view(), name='user_update'),
     path('user/<int:pk>/', UserRetrieveAPIView.as_view(), name='user_detail'),
-    path('user/list/', UserListAPIView.as_view(), name='user_list'),
 ]

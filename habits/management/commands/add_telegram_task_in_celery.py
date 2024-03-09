@@ -5,6 +5,7 @@ from django.core.management import BaseCommand
 
 
 class Command(BaseCommand):
+    """Adding task check_habits_for_action in Celery"""
     def handle(*args, **kwargs):
         schedule, created = IntervalSchedule.objects.get_or_create(
             every=1,

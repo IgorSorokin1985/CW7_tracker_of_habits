@@ -4,6 +4,7 @@ from habits.validators import check_duration_time, check_habit_periodicity, vali
 
 
 class HabitSerializer(serializers.ModelSerializer):
+    """Serializer for habits"""
     duration_time = serializers.TimeField(validators=[check_duration_time])
     periodicity = serializers.IntegerField(validators=[check_habit_periodicity])
 
@@ -25,6 +26,7 @@ class HabitSerializer(serializers.ModelSerializer):
 
 
 class PublicHabitsSerializer(serializers.ModelSerializer):
+    """Serializer for public habits"""
     class Meta:
         model = Habit
         fields = ["action", "place", "time", "reward", "associated_habit", "periodicity",
@@ -32,6 +34,7 @@ class PublicHabitsSerializer(serializers.ModelSerializer):
 
 
 class NiceHabitSerializer(serializers.ModelSerializer):
+    """Serializer for nice habits"""
     class Meta:
         model = NiceHabit
         fields = "__all__"

@@ -7,6 +7,7 @@ send_message_url = f'https://api.telegram.org/bot{telegram_token}/sendMessage'
 
 
 def send_telegram_message(habit):
+    """Function for sending message in Telegram"""
     user = habit.user
     message = create_message(habit, user)
     requests.post(
@@ -18,6 +19,7 @@ def send_telegram_message(habit):
 
 
 def create_message(habit, user):
+    """Function for creating message"""
     if habit.reward:
         reward_text = f"After this you can get {habit.reward}!"
     else:
