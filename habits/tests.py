@@ -57,7 +57,7 @@ class CourseAPITest(APITestCase):
     def test_delete_habit(self):
         self.client.force_authenticate(user=self.user)
         response = self.client.delete(
-            f'/habit/delete/100/')
+            '/habit/delete/100/')
         print(response)
         self.assertEquals(
             response.status_code,

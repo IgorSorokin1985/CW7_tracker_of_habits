@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from habits.models import Habit
+from habits.models import Habit, NiceHabit
 from habits.validators import check_duration_time, check_habit_periodicity, validate_fields
 
 
@@ -29,3 +29,9 @@ class PublicHabitsSerializer(serializers.ModelSerializer):
         model = Habit
         fields = ["action", "place", "time", "reward", "associated_habit", "periodicity",
                   "time_for_habit", "is_public"]
+
+
+class NiceHabitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NiceHabit
+        fields = "__all__"
