@@ -12,6 +12,7 @@ class Command(BaseCommand):
         user = User.objects.create(
             email='admin@sky.pro',
             name='admin',
+            telegram_chat_id='12345',
             is_superuser=True,
             is_staff=True,
             is_active=True,

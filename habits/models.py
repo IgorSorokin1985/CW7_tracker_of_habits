@@ -21,7 +21,7 @@ class NiceHabit(models.Model):
 
 class Habit(models.Model):
     """Model for Habit"""
-    user = models.ForeignKey(User, **NULLABLE, on_delete=models.CASCADE, verbose_name='user')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='user')
     time = models.TimeField(verbose_name='Time for habit')
     place = models.CharField(max_length=50, verbose_name='Place')
     action = models.CharField(max_length=50, verbose_name='Action')

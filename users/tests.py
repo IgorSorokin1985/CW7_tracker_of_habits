@@ -3,21 +3,20 @@ from rest_framework import status
 from users.models import User
 
 
-class CourseAPITest(APITestCase):
+class UserAPITest(APITestCase):
 
     def setUp(self):
         self.user = User.objects.create(
-            id=11,
             name="testuser1",
             email="testuser1@test.com",
-            telegram="@testtelegram1",
+            telegram_chat_id="@testtelegram1",
             password='12345'
         )
 
     def test_get_user(self):
         self.client.force_authenticate(user=self.user)
         response = self.client.get(
-            '/user/11/')
+            f'/user/{self.user.pk}/')
         self.assertEquals(
             response.status_code,
             status.HTTP_200_OK
@@ -27,7 +26,7 @@ class CourseAPITest(APITestCase):
         data = {
             "name": "testuser2",
             "email": "testuser2@test.com",
-            "telegram": "@testtelegram2",
+            "telegram_chat_id": "@testtelegram2",
             "password": "12345"
         }
         response = self.client.post(
@@ -41,7 +40,7 @@ class CourseAPITest(APITestCase):
     def test_delete_user(self):
         self.client.force_authenticate(user=self.user)
         response = self.client.delete(
-            '/user/delete/11/')
+            f'/user/delete/{self.user.pk}/')
         self.assertEquals(
             response.status_code,
             status.HTTP_204_NO_CONTENT

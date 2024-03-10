@@ -22,6 +22,17 @@ pip install -r requirements.txt
 ```
 When that is said and done, that should be it on the computer side, you should connect this service with Database.
 
+## Environment variables
+For working Tracker of Habits it is need create file ".env" with information about your email service and other. 
+Example this file you can see as ".env.example".
+For working message sending in Telegram you need Token of Telegram Bot.
+```
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+TELEGRAM_BOT_API_KEY=
+```
+
 ## Database connection
 You should install PosgreSQL. 
 ```
@@ -30,20 +41,9 @@ https://www.postgresql.org/download/
 
 Then create Database.
 ```
-CREATE DATABASE tracker_of_habits
+CREATE DATABASE name_database
 ```
-Then it is need connect service with Database. You need to specify the database parameters in the file 
-"config/settings.py" (user and password for example).
-```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tracker_of_habits',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-    }
-}
-```
+
 Then you should make migrations with these commands
 ```
 python manage.py makemigrations
@@ -51,16 +51,6 @@ python manage.py makemigrations
 If all is ok then
 ```
 python manage.py migrate
-```
-
-## Environment variables
-For working Tracker of Habits it is need create file ".env" with information about your email service and other. 
-Example this file you can see as ".env.example".
-For working message sending in Telegram you need Token of Telegram Bot.
-```
-DATABASE_USER=
-DATABASE_PASSWORD=
-TELEGRAM_BOT_API_KEY=
 ```
 
 ## Celery
