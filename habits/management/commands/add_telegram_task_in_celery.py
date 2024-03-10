@@ -13,7 +13,7 @@ class Command(BaseCommand):
         )
         PeriodicTask.objects.create(
             interval=schedule,
-            name="Checking users",
+            name="Checking user's habits",
             task="habits.tasks.check_habits_for_action",
             kwargs=json.dumps({
                 "be_careful": True,
