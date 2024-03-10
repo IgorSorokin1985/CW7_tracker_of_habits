@@ -10,7 +10,7 @@ class User(AbstractUser):
     username = None
     name = models.CharField(max_length=50, verbose_name='Name')
     email = models.EmailField(unique=True, verbose_name='Email')
-    telegram = models.CharField(max_length=50, verbose_name='Telegram')
+    telegram_chat_id = models.CharField(max_length=50, verbose_name='Telegram chat ID')
     avatar = models.ImageField(upload_to='users', **NULLABLE, verbose_name='Avatar')
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

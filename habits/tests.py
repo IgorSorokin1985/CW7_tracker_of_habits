@@ -4,14 +4,13 @@ from habits.models import Habit
 from users.models import User
 
 
-class CourseAPITest(APITestCase):
+class HabitAPITest(APITestCase):
 
     def setUp(self):
         self.user = User.objects.create(
-            id=10,
             name="testuser",
             email="testuser@test.com",
-            telegram="@testtelegram",
+            telegram_chat_id="@testtelegram",
             password='12345'
         )
         self.habit = Habit.objects.create(
@@ -37,6 +36,7 @@ class CourseAPITest(APITestCase):
 
     def test_create_habit(self):
         data = {
+            "user": self.user.pk,
             "place": "home",
             "time": "12:00",
             "action": "drink water",

@@ -3,7 +3,7 @@ from habits.models import Habit, NiceHabit
 from rest_framework.permissions import IsAuthenticated
 from users.permissions import IsOwner
 from habits.serializers import HabitSerializer, PublicHabitsSerializer, NiceHabitSerializer
-from habits.paginators import HabitsPagination, NiceHabitsPagination
+from habits.paginators import HabitsPagination
 
 
 class HabitCreateAPIView(generics.CreateAPIView):
@@ -95,7 +95,7 @@ class NiceHabitListAPIView(generics.ListAPIView):
     serializer_class = NiceHabitSerializer
     queryset = NiceHabit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
-    pagination_class = NiceHabitsPagination
+    pagination_class = HabitsPagination
 
     def get_queryset(self):
         list_nice_habits = super().get_queryset()
