@@ -72,12 +72,6 @@ For adding test habits you can use command
 python manage.py add_test_habits
 ```
 
-## Add telegram sending
-For starting automatic sending messages in telegram you should use command.
-```
-python manage.py add_telegram_task_in_celery
-```
-
 ## Documentation
 All documentation about endpoints you can see by the link
 ```

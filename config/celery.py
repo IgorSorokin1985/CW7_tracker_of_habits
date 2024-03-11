@@ -13,3 +13,10 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Автоматическое обнаружение и регистрация задач из файлов tasks.py в приложениях Django
 app.autodiscover_tasks()
+
+app.conf.beat_schedule = {
+    'telegram_notifications': {
+        'task': 'habits.tasks.check_habits_for_action',
+        'schedule': 60.0,  # every 60 seconds
+    },
+}
