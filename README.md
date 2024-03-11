@@ -57,7 +57,7 @@ python manage.py migrate
 ## Celery
 For right working Celery you need Redis. After downloadind Redis you can start worker. For this you should use command
 ```
-celery -A config worker -l INFO
+celery -A config beat -l info
 ```
 
 ## Creating a superuser
