@@ -29,8 +29,8 @@ class PublicHabitsSerializer(serializers.ModelSerializer):
     """Serializer for public habits"""
     class Meta:
         model = Habit
-        fields = ["action", "place", "time", "reward", "associated_habit", "periodicity",
-                  "time_for_habit", "is_public"]
+        fields = ["action", "place", "time", "reward", "associated_nice_habit", "periodicity",
+                  "duration_time", "is_public"]
 
 
 class NiceHabitSerializer(serializers.ModelSerializer):

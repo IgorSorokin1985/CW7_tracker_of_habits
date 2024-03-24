@@ -78,3 +78,16 @@ All documentation about endpoints you can see by the link
 http://localhost:8000/docs/
 http://localhost:8000/redoc/
 ```
+
+## Deploy
+For deploying project after cloning and creating .env file you should install docker and docker-compose.
+Then you can use commands
+```
+docker-compose build
+docker-compose up
+```
+
+or this
+```
+docker-compose up -d —build
+```
